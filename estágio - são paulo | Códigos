@@ -1,0 +1,206 @@
+
+#Exercicio 1)
+
+indice = 13
+k = 0
+soma = 0
+
+while k < indice:
+  k += 1
+  soma += k
+  print(soma)
+#---------------------------------------------------
+#Exercicio 2)
+at = 0
+prox = 1
+temp = 0
+ctr = 0
+
+indice = int(input("Digite o numero para verificar: "))
+#sequencia de fibonacci executada 20 vezes
+for x in range(20):
+  if (indice == at):
+    ctr = 1
+  temp = prox
+  prox += at
+  at = temp
+
+if(ctr == 1):
+  print("O numero", indice, "pertence à sequência fibonacci.")
+else:
+    print("O número", indice, "NÃO pertence à sequência fibonacci.")
+
+#---------------------------------------
+
+#Exercicio 3) com JSON
+import json
+
+data_json = '''
+ [
+	{
+		"dia": 1,
+		"valor": 22174.1664
+	},
+	{
+		"dia": 2,
+		"valor": 24537.6698
+	},
+	{
+		"dia": 3,
+		"valor": 26139.6134
+	},
+	{
+		"dia": 4,
+		"valor": 0.0
+	},
+	{
+		"dia": 5,
+		"valor": 0.0
+	},
+	{
+		"dia": 6,
+		"valor": 26742.6612
+	},
+	{
+		"dia": 7,
+		"valor": 0.0
+	},
+	{
+		"dia": 8,
+		"valor": 42889.2258
+	},
+	{
+		"dia": 9,
+		"valor": 46251.174
+	},
+	{
+		"dia": 10,
+		"valor": 11191.4722
+	},
+	{
+		"dia": 11,
+		"valor": 0.0
+	},
+	{
+		"dia": 12,
+		"valor": 0.0
+	},
+	{
+		"dia": 13,
+		"valor": 3847.4823
+	},
+	{
+		"dia": 14,
+		"valor": 373.7838
+	},
+	{
+		"dia": 15,
+		"valor": 2659.7563
+	},
+	{
+		"dia": 16,
+		"valor": 48924.2448
+	},
+	{
+		"dia": 17,
+		"valor": 18419.2614
+	},
+	{
+		"dia": 18,
+		"valor": 0.0
+	},
+	{
+		"dia": 19,
+		"valor": 0.0
+	},
+	{
+		"dia": 20,
+		"valor": 35240.1826
+	},
+	{
+		"dia": 21,
+		"valor": 43829.1667
+	},
+	{
+		"dia": 22,
+		"valor": 18235.6852
+	},
+	{
+		"dia": 23,
+		"valor": 4355.0662
+	},
+	{
+		"dia": 24,
+		"valor": 13327.1025
+	},
+	{
+		"dia": 25,
+		"valor": 0.0
+	},
+	{
+		"dia": 26,
+		"valor": 0.0
+	},
+	{
+		"dia": 27,
+		"valor": 25681.8318
+	},
+	{
+		"dia": 28,
+		"valor": 1718.1221
+	},
+	{
+		"dia": 29,
+		"valor": 13220.495
+	},
+	{
+		"dia": 30,
+		"valor": 8414.61
+	}
+  
+]'''
+
+
+dados = json.loads(data_json)
+valores = [item['valor'] for item in dados if item['valor'] > 0]
+menor = min(valores)
+maior = max(valores)
+media = sum(valores) / len(valores)
+acima_media = sum(1 for valor in valores if valor > media)
+
+print("Menor valor de faturamento em um dia: ", menor)
+print("Maior valor de faturamento em um dia:", maior)
+print("Número de dias com faturamento acima da média mensal: ", acima_media)
+
+#------------------------------------------
+# exercicio 4)
+
+valores = {
+    "SP": 67836.43,
+    "RJ": 36678.66,
+    "MG": 29229.88,
+    "ES": 27165.48,
+    "Outros": 19849.53
+}
+total = sum(valores.values())
+
+for estado, valor in valores.items():
+    porcentagem = (valor / total) * 100
+    print(f'Porcentagem de {estado}: {porcentagem:.2f}%')
+
+#-----------------------------------------------
+
+#Exercicio 5)
+
+def inverter(s):    
+    string = ""
+    
+    for i in range(len(s) - 1, -1, -1):
+        string += s[i]
+    
+    return string
+
+texto = input("Digite o texto a ser invertido: ")
+texto_invertido = inverter(texto)
+print(texto_invertido)
+  
